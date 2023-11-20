@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  postgres-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: webapp_db
+      POSTGRES_USER: webapp_user
+      POSTGRES_PASSWORD: postgres1234
+
+  webapp:
+    #image: webapp:0.0.1
+    build: ./
+    restart: always
+    ports:
+      - "5500:5500"
+    depends_on:
+      - postgres-db
+    environment:
+      DATABASE_URL: postgresql://webapp_user:postgres1234@postgres-db/webapp_db
