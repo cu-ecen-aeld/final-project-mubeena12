@@ -4,3 +4,26 @@ https://github.com/mubeena12/final-project-assignment-YoctoNanoWebContainer/wiki
 # Project Schedule
 https://github.com/users/mubeena12/projects/1/views/1
 
+# Docker Scaffolding
+
+## To test the sample postgres and webapp stack
+
+```bash
+./test-webapp.sh
+```
+
+## To start/stop the sample postgres and webapp stack
+
+### To start
+
+```bash
+./start-stop-webapp.sh start
+```
+
+### To stop
+
+```bash
+./start-stop-webapp.sh stop
+```
+
+NOTE: Running `test-webapp.sh` will delete the existing postgres and webapp containers, leading to data loss.
