@@ -1,16 +1,19 @@
 #! /bin/bash
 
 # Delete existing container
+echo "Deleting exiting postgres and webapp containers ..."
 docker-compose down
 
 # Delete old container image for webapp
+echo "Deleting the exising webapp container image ..."
 docker rmi docker_webapp
 
 # Run new docker containers for postgres and webapp
+echo "Running the docker containers for postgres and webapp ..."
 docker-compose up -d
 
 # Wait for container to start
-echo "Waiting for containers to start ... "
+echo "Waiting for containers to start ..."
 sleep 20
 
 # Tests
@@ -29,3 +32,6 @@ curl http://localhost:5500/tables
 echo "Testing route /all_data"
 curl http://localhost:5500/all_data
 
+# Cleanup
+echo "Deleting test containers ..."
+docker-compose down
