@@ -9,6 +9,7 @@ https://github.com/users/mubeena12/projects/1/views/1
 ## To test the sample postgres and webapp stack
 
 ```bash
+cd docker
 ./test-webapp.sh
 ```
 
@@ -17,12 +18,14 @@ https://github.com/users/mubeena12/projects/1/views/1
 ### To start
 
 ```bash
+cd docker
 ./start-stop-webapp.sh start
 ```
 
 ### To stop
 
 ```bash
+cd docker
 ./start-stop-webapp.sh stop
 ```
 
