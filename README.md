@@ -55,12 +55,18 @@ git clone https://github.com/OE4T/tegra-demo-distro.git
 git checkout --track origin/kirkstone-l4t-r32.7.x
 git submodule update --init
 . ./setup-env --machine jetson-nano-2gb-devkit
-vi conf/local.conf 
+
+# Copy the local.conf from this repo
+cp <this-repo-clone-path>/jetson-nano-2gb-devkit/local.conf conf/local.conf 
+
+# Alternatively, edit conf/local.conf and make the following changes.
+# vi conf/local.conf 
 # Uncomment: DL_DIR ?= "${TOPDIR}/downloads"
 # Uncomment: SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
 # Uncomment: DL_DIR ?= TMPDIR = "${TOPDIR}/tmp"
 # Add: IMAGE_INSTALL:append = " python3-docker-compose"
 # Add: IMAGE_INSTALL:append = " python3-distutils"
+
 bitbake demo-image-full
 ```
 
