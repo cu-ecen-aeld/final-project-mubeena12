@@ -48,8 +48,6 @@ NOTE: Running `test-webapp.sh` will delete the existing postgres and webapp cont
 
 ## Yocto Build
 
-NOTE: A pre-built image is located at `jetson_nano_image/demo-image-full-jetson-nano-2gb-devkit.tegraflash.tar.gz` in this repo.
-
 ### Steps to build jetson-nano-2gb-devkit image using Yocto Project
 
 ```bash
