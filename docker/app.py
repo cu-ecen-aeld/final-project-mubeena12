@@ -21,7 +21,7 @@ class WebappTable(Base):
 
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return "Hello, World!\n"
 
 @app.route("/create_table", methods=["POST"])
 def create_table():

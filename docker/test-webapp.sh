@@ -4,10 +4,6 @@
 echo "Deleting exiting postgres and webapp containers ..."
 docker-compose down
 
-# Delete old container image for webapp
-echo "Deleting the exising webapp container image ..."
-docker rmi docker_webapp
-
 # Run new docker containers for postgres and webapp
 echo "Running the docker containers for postgres and webapp ..."
 docker-compose up -d

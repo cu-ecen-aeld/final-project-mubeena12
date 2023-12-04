@@ -10,8 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres1234
 
   webapp:
-    #image: webapp:0.0.1
-    build: ./
+    image: ghcr.io/mubeena12/docker-webapp:latest
     restart: always
     ports:
       - "5500:5500"

@@ -9,7 +9,7 @@ case "$1" in
     start)
         echo "Starting postgres and webapp..."
         # Run the docker containers for postgres and webapp
-        docker-compose up --build -d
+        docker-compose up -d
         ;;
     stop)
         echo "Stopping postgres and webapp..."
