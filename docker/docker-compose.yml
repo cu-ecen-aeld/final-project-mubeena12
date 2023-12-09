@@ -11,9 +11,8 @@ services:
 
   webapp:
     image: ghcr.io/mubeena12/docker-webapp:latest
+    network_mode: "host"
     restart: always
-    ports:
-      - "5500:5500"
     depends_on:
       - postgres-db
     environment:
