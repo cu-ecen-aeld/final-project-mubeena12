@@ -5,11 +5,11 @@ From python:3.9
 WORKDIR /app
 
 # Copy requirmrnts.txt file and install dependencies
-COPY requirements.txt .
+COPY SensorMonitoringWebApp/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-COPY . .
+COPY SensorMonitoringWebApp .
 
 # Expose the port the app runs on 
 EXPOSE 5500
