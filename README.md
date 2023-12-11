@@ -46,6 +46,20 @@ cd docker
 
 NOTE: Running `test-webapp.sh` will delete the existing postgres and webapp containers, leading to data loss.
 
+### Steps to add submodules SensorMonitoringWebApp and SensorMonitoringDriver
+```bash
+git submodule add git@github.com:Silex93/SensorMonitoringWebApp.git
+git submodule add git@github.com:cu-ecen-aeld/final-project-Silex93.git SensorMonitoringDriver
+git submodule update --init --recursive
+cd SensorMonitoringDriver
+git pull origin main
+cd ../SensorMonitoringWebApp
+git pull origin master
+cd ..
+docker build --platform linux/arm64 . -t ghcr.io/mubeena12/docker-webapp:latest
+docker push ghcr.io/mubeena12/docker-webapp:latest
+```
+
 ## Yocto Build
 
 ### Steps to build jetson-nano-2gb-devkit image using Yocto Project
@@ -105,6 +119,7 @@ cp <this-repo-clone-path>/jetson-nano-2gb-devkit/meta-docker-app/recipes-contain
 
 bitbake demo-image-full
 ```
+
 ### Steps to deploy image on jetson-nano-2gb-devkit
 
 ```bash
