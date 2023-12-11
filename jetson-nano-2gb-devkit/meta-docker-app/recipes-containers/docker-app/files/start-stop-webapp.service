@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Stop WebApp Service
+
+[Service]
+Type=simple
+ExecStart=/etc/init.d/start-stop-webapp
+
+[Install]
+WantedBy=multi-user.target
+

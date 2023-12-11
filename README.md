@@ -69,7 +69,42 @@ cp <this-repo-clone-path>/jetson-nano-2gb-devkit/local.conf conf/local.conf
 
 bitbake demo-image-full
 ```
+### Steps to create a custom docker-app layer
+```bash
+cd tegra-demo-distro
+source ./setup-env
+bitbake-layers create-layer ../layers/meta-docker-app
+bitbake-layers add-layer ../layers/meta-docker-app # Add the layer
+bitbake-layers show-layers  # Verify if the new layer is created
+# Change the recipes-example and example directory name to recipes-containers and example respectively
+cd ../layers/meta-docker-app/
+mv recipes-example recipes-containers
+cd recipes-containers
+mv example docker-app
+cd docker-app
+# Change example_0.1.bb file name to docker-app_0.1.bb 
+mv example_0.1.bb docker-app_0.1.bb
+# Add the necessary docker files into a directory
+mkdir files
+cd files
+cp <this-repo-clone-path>/jetson-nano-2gb-devkit/meta-docker-app/recipes-containers/docker-app/files/* .
+# Copy the content of the docker-app_0.1.bb 
+cp <this-repo-clone-path>/jetson-nano-2gb-devkit/meta-docker-app/recipes-containers/docker-app/docker-app_0.1.bb ../
+# Verify the conf/bblayer.conf has the new custom layer
+#".../tegra-demo-distro/layers/meta-docker-app/"
 
+# Update the conf/local.conf with below line:
+# Add: IMAGE_INSTALL:append = " docker-app"
+# If docker is using specific port to forward like below,
+# docker-compose.yml
+#    ports:
+#      - "5500:5500"
+# Then include kernel-modules as well in conf/local.conf
+# Add: IMAGE_INSTALL:append = " kernel-modules" 
+# Or If docker is using "network_mode = host" in the docker-compose.yml file to forward the port then you can skip adding kernel-modules to conf/local.conf 
+
+bitbake demo-image-full
+```
 ### Steps to deploy image on jetson-nano-2gb-devkit
 
 ```bash
