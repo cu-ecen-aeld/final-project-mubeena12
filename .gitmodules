@@ -1,0 +1,6 @@
+[submodule "SensorMonitoringWebApp"]
+	path = SensorMonitoringWebApp
+	url = git@github.com:Silex93/SensorMonitoringWebApp.git
+[submodule "SensorMonitoringDriver"]
+	path = SensorMonitoringDriver
+	url = git@github.com:cu-ecen-aeld/final-project-Silex93.git
