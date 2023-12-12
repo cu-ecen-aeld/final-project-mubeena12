@@ -10,7 +10,7 @@ case "$1" in
         # Run the docker containers for postgres and webapp
         # cd /usr/bin
         #docker-compose up -d
-        sleep 300
+        sleep 60
         cd /usr/bin && start-stop-daemon -v -S -n docker-compose -a /usr/bin/docker-compose -- up -d
         ;;
     stop)
